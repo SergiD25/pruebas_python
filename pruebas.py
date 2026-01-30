@@ -306,7 +306,27 @@ else:
 """
 
 
+def cadenas(str1, str2):
+    out1 = ""
+    for caracter in str1:
+        if caracter in str2:
+            continue
+        else:
+            out1 += caracter
+    print(out1)
 
+    out2 =""
+    for caracter in str2:
+        if caracter in str1:
+            continue
+        else:
+            out2 += caracter
+    print(out2)
+
+str1 = input("Ingresa una cadena de caracteres")
+str2 = input("Ingresa otra cadena de caracteres")
+
+cadenas(str1, str2)
 
 
 
