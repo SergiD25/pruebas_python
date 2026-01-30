@@ -15,7 +15,8 @@ from time import process_time_ns
 
 "from wsgiref.util import request_uri"
 
-""" a = list(input("coloca una palabra"))
+"""  SEGUNDO RETO
+a = list(input("coloca una palabra"))
 b = list(input("coloca otra palabra"))
 
 if len(a) == len(b):
@@ -32,7 +33,8 @@ if len(a) == len(b):
 else:
     print("No son iguales")"""
 
-"""t = 0
+""" TERCER RETO
+t = 0
 p = 1
 fibo = int(input("Hola coloca un tope"))
 if fibo > 1:
@@ -46,7 +48,9 @@ if fibo > 1:
 
 
 
-""" version super complicada por que si
+""" CUARTO RETO
+
+version super complicada por que si
 for i in range(1,100):
 
     if i == 1:
@@ -65,7 +69,8 @@ for i in range(1,100):
             print(f"El numero {i} es primo")"""
 
 
-""" solucin corta de comprobacion de primo y no primo
+"""
+ solucin corta de comprobacion de primo y no primo
 for i in range(1, 100):
 
     if i < 2:
@@ -83,7 +88,7 @@ for i in range(1, 100):
         print(f"El número {i} es primo")
     else:
         print(f"El número {i} no es primo")"""
-"""
+""" QUINTO RETO
 nombre = " "
 
 def area(nombre):
@@ -405,8 +410,17 @@ numero = input("Ingrese un numero: ")
 print(armstrong(numero ))
 
 """
+import re
+fecha = ""
+fecha2 = ""
 
+patron = r"^\d{3}-[a-z]{2}$"
 
+while not  re.match(patron, fecha):
+    fecha = input("Coloca una fecha, de la siguiente forma dd/MM/yyyy ")
+    fecha2 = input("Coloca otra fecha, con el mismo formato de la anterior")
+
+    break
 
 
 
