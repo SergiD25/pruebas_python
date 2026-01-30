@@ -10,6 +10,7 @@ for a in range(1,101):
     else:
         print(a)"""
 from itertools import count
+from os.path import join
 
 "from wsgiref.util import request_uri"
 
@@ -305,7 +306,7 @@ else:
         print("La espresion no esta balanceada")
 """
 
-
+"""
 def cadenas(str1, str2):
     out1 = ""
     for caracter in str1:
@@ -327,6 +328,64 @@ str1 = input("Ingresa una cadena de caracteres")
 str2 = input("Ingresa otra cadena de caracteres")
 
 cadenas(str1, str2)
+"""
+"""
+def reversado (cadena):
+    puntuacion = [
+        ".", ",", ";", ":", "¿", "?", "¡", "!",
+        "(", ")", "[", "]", "{", "}",
+        "\"", "'", "«", "»",
+        "-", "–", "—", "_",
+        "…", "/", "\\", "|",
+        "@", "#", "$", "%", "&", "*", "+", "=",
+        "<", ">"]
+
+    acentuacion = {"á":"a","é":"e","í":"i","ó":"o","ú":"u"}
+
+    a = ""
+    cadena = cadena.replace(" ","")
+    new_cadena=""
+    for item in cadena:
+        if item in puntuacion :
+            new_cadena += ""
+        elif item in acentuacion.keys() :
+            new_cadena += acentuacion[item]
+
+        else:
+            new_cadena += item
+
+    
+    for item in reversed(new_cadena):
+        a += item
+
+    if a == new_cadena:
+        return True
+    else:
+        return False
+
+
+cadena = input("Ingresa una cadena de caracteres").lower().strip()
+
+
+print(reversado(cadena))
+
+"""
+
+def factorial (numero):
+
+    if numero < 0:
+        return ("No existe")
+
+    elif numero <= 1:
+        return 1
+    else:
+        return numero * factorial(numero -1)
+
+
+numero = int(input("Ingrese un numero: "))
+print(factorial(numero))
+
+
 
 
 
