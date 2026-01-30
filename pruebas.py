@@ -11,6 +11,7 @@ for a in range(1,101):
         print(a)"""
 from itertools import count
 from os.path import join
+from time import process_time_ns
 
 "from wsgiref.util import request_uri"
 
@@ -370,7 +371,7 @@ cadena = input("Ingresa una cadena de caracteres").lower().strip()
 print(reversado(cadena))
 
 """
-
+"""
 def factorial (numero):
 
     if numero < 0:
@@ -384,6 +385,28 @@ def factorial (numero):
 
 numero = int(input("Ingrese un numero: "))
 print(factorial(numero))
+"""
+"""
+def armstrong (numero):
+    acumulacion = 0
+    potencia = len(numero)
+    for i in numero:
+        a = int(i)
+        a = pow(a, potencia)
+        acumulacion = acumulacion + a
+    total = str(acumulacion)
+
+    if total == numero:
+        return " es un numero de amstrong"
+    else:
+        return " no es un numero de amstrong"
+
+numero = input("Ingrese un numero: ")
+print(armstrong(numero ))
+
+"""
+
+
 
 
 
