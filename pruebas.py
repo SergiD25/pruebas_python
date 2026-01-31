@@ -411,19 +411,29 @@ print(armstrong(numero ))
 
 """
 import re
+
+def calculadora(fecha, fecha2):
+    fechas = {1:31, 2:28, 3:31, 4:30, 5:31, 6:30, 7:31, 8:31, 9:30, 10:31, 11:30, 12:31}
+    lista1 = list()
+    for item in fecha.split("/"):
+        a = int(item)
+        lista1.append(a)
+
+    print(lista1)
+
+
+
 fecha = ""
 fecha2 = ""
-
-patron = r"^\d{3}-[a-z]{2}$"
+patron = r"\d{2}/\d{2}/\d{4}"
 
 while not  re.match(patron, fecha):
-    fecha = input("Coloca una fecha, de la siguiente forma dd/MM/yyyy ")
-    fecha2 = input("Coloca otra fecha, con el mismo formato de la anterior")
+    fecha = input("ingrese una fecha con el formato dd/mm/aaaa:  ")
 
-    break
+while not re.match(patron, fecha2):
+    fecha2 = input("ingrese una fecha con el formato dd/mm/aaaa:  ")
 
-
-
+calculadora(fecha, fecha2)
 
 
 
