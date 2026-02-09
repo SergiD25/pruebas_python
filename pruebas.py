@@ -410,16 +410,35 @@ numero = input("Ingrese un numero: ")
 print(armstrong(numero ))
 
 """
+
+
+
 import re
 
 def calculadora(fecha, fecha2):
-    fechas = {1:31, 2:28, 3:31, 4:30, 5:31, 6:30, 7:31, 8:31, 9:30, 10:31, 11:30, 12:31}
+    fechas = {1:range(1,31), 2:range(1,28), 3:range(1,31), 4:range(1,30), 5:range(1,31),
+              6:range(1,30), 7:range(1,31), 8:range(1,31), 9:range(1,30), 10:range(1,31)
+             , 11:range(1,30), 12:range(1,31)}
     lista1 = list()
+    lista2 = list()
     for item in fecha.split("/"):
         a = int(item)
         lista1.append(a)
 
-    print(lista1)
+    if lista1[1] in fechas.keys() and lista1[0] in fechas[lista1[1]]:
+        a = 1
+    else:
+        print("fecha fuera de rango")
+
+
+    for item in fecha2.split("/"):
+        b = int(item)
+        lista2.append(b)
+
+    if lista2[1] in fechas.keys() and lista2[0] in fechas[lista2[1]]:
+        a = 1
+    else:
+        print("fecha fuera de rango")
 
 
 
@@ -427,14 +446,25 @@ fecha = ""
 fecha2 = ""
 patron = r"\d{2}/\d{2}/\d{4}"
 
+
 while not  re.match(patron, fecha):
-    fecha = input("ingrese una fecha con el formato dd/mm/aaaa:  ")
+    fecha = input("ingrese la primera fecha con el formato dd/mm/aaaa:  ")
 
 while not re.match(patron, fecha2):
-    fecha2 = input("ingrese una fecha con el formato dd/mm/aaaa:  ")
+    fecha2 = input("ingrese la segunda fecha con el formato dd/mm/aaaa:  ")
 
 calculadora(fecha, fecha2)
 
 
+"""
+diccionario = {1:list(range(1,31)),2:list(range(2,20))}
 
+a = int(input("ingrese la primera cadena de caracteres: "))
+lista = [25,a]
 
+if lista[1] in diccionario.keys():
+    if lista[0] in diccionario[lista[1]]:
+        print("se encontro el valor")
+    else:
+        print("no esta")
+"""

@@ -36,5 +36,7 @@ while cad>0:
 
 """
 
-lista = list()
-print(lista)
+
+a = int(input())
+if a == 1:
+    print("esta ok")
