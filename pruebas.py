@@ -412,7 +412,7 @@ print(armstrong(numero ))
 """
 
 
-
+""" intento fallido
 import re
 
 def calculadora(fecha, fecha2):
@@ -421,6 +421,7 @@ def calculadora(fecha, fecha2):
              , 11:range(1,30), 12:range(1,31)}
     lista1 = list()
     lista2 = list()
+
     for item in fecha.split("/"):
         a = int(item)
         lista1.append(a)
@@ -440,11 +441,24 @@ def calculadora(fecha, fecha2):
     else:
         print("fecha fuera de rango")
 
+    if lista1[2] > 0 and lista2[2] > 0:
+
+        res_dia = lista1[0] - lista2[0]
+        res_mes = lista1[1] - lista2[1]
+        res_year = lista1[2] - lista2[2]
+        res_bic = int(res_year / 4)
+
+        year = res_year * 365
+        month = res_mes * 30
+        total_days = year + month + res_dia + res_bic
+
+    return(print(total_days))
+
 
 
 fecha = ""
 fecha2 = ""
-patron = r"\d{2}/\d{2}/\d{4}"
+
 
 
 while not  re.match(patron, fecha):
@@ -455,7 +469,7 @@ while not re.match(patron, fecha2):
 
 calculadora(fecha, fecha2)
 
-
+"""
 """
 diccionario = {1:list(range(1,31)),2:list(range(2,20))}
 
@@ -467,4 +481,29 @@ if lista[1] in diccionario.keys():
         print("se encontro el valor")
     else:
         print("no esta")
+"""
+"""
+from datetime import datetime
+
+def calculadora(fecha1, fecha2):
+    if fecha1 == fecha2:
+        print("Son la misma fecha")
+    elif fecha1 > fecha2:
+        resultado = fecha1 - fecha2
+    else:
+        resultado = fecha2 - fecha1
+
+    return(resultado)
+
+
+
+fecha = input("Ingresa una fecha")
+fecha1 = datetime.strptime(fecha, "%d/%m/%Y")
+
+fecha = input("ingresa la segunda fecha")
+fecha2 = datetime.strptime(fecha, "%d/%m/%Y")
+
+print(calculadora(fecha1, fecha2))
+#if re.match(patron, fecha1):
+#    print("no se ni lo que estoy haciendo xd ")
 """
