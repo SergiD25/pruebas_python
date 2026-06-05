@@ -1,4 +1,3 @@
-
 """ PRIMER RETO
 for a in range(1,101):
     if (a % 5 ==0) and (a % 3 == 0):
@@ -9,9 +8,6 @@ for a in range(1,101):
         print("buzz")
     else:
         print(a)"""
-from itertools import count
-from os.path import join
-from time import process_time_ns
 
 "from wsgiref.util import request_uri"
 
@@ -46,8 +42,6 @@ if fibo > 1:
         p = c
         print(c)"""
 
-
-
 """ CUARTO RETO
 
 version super complicada por que si
@@ -67,7 +61,6 @@ for i in range(1,100):
             print(f"El numero {i} no es primo")
         else:
             print(f"El numero {i} es primo")"""
-
 
 """
  solucin corta de comprobacion de primo y no primo
@@ -248,7 +241,6 @@ resul = "".join(map(str,lista))
 print(resul)
 """
 
-
 """
 my_dict = {"a":".-","b":"-...","c":"-.-.","d":"-..","e":".","f":"..-.","g":"--.","h":"....","i":"..","j":".---",
            "k":"-.-","l":".-..","m":"--","n":"-.","o":"---","p":".--.","q":"--.-","r":".-.","s":"...","t":"-",
@@ -411,7 +403,6 @@ print(armstrong(numero ))
 
 """
 
-
 """ intento fallido
 import re
 
@@ -506,4 +497,152 @@ fecha2 = datetime.strptime(fecha, "%d/%m/%Y")
 print(calculadora(fecha1, fecha2))
 #if re.match(patron, fecha1):
 #    print("no se ni lo que estoy haciendo xd ")
+"""
+
+"""
+def fechas(texto):
+    new_texto = " ".join(texto.split())
+    print(new_texto)
+    for palabra in new_texto.split(" "):
+        letra = palabra[0].upper()
+        palabra[0] = letra
+
+        print(palabra)
+
+
+texto = input("Ingresa lo que te flote el barco: ")
+fechas(texto)
+"""
+
+"""def recorrido(acciones, pista):
+    newcadena = ""
+    if len(acciones) == len(pista):
+        for i, accion in enumerate(acciones):
+            if accion == "jump" and pista[i] == "|":
+                newcadena += "|"
+            elif accion == "run" and pista[i] == "_":
+                newcadena += "_"
+            elif accion == "run" and pista[i] == "|":
+                newcadena += "/"
+            elif accion == "jump" and pista[i] == "_":
+                newcadena += "x"
+        if newcadena == pista:
+            return (newcadena, True)
+        else:
+            return (newcadena, False)
+    else:
+        return ("los tamaños no coinciden")
+
+acciones = ["jump", "run", "run", "jump"]
+pista = "|___"
+
+print(recorrido(acciones, pista))"""
+
+"""
+def recorrido(acciones, pista):
+    if len(acciones) != len(pista):
+        return ("Los tamaños no coinciden", False)
+
+    resultado = ""
+    success = True
+
+    for accion, tramo in zip(acciones, pista):
+        if (accion == "run" and tramo == "_") or (accion == "jump" and tramo == "|"):
+            resultado += tramo  # correcto
+        elif accion == "run" and tramo == "|":
+            resultado += "/"
+            success = False
+        elif accion == "jump" and tramo == "_":
+            resultado += "x"
+            success = False
+
+    return (resultado, success)
+
+
+acciones = ["jump", "run", "run", "jump"]
+pista = "|___"
+
+print(recorrido(acciones, pista))
+
+"""
+
+matriz = [
+    ["o", "x", "x"],
+    ["x", "x", ""],
+    ["o", "o", ""]
+]
+nuevamatriz = [
+    [0, 0, 0],
+    [0, 0, 0],
+    [0, 0, 0]]
+
+conteox = 0
+conteoo = 0
+
+for i, fila in enumerate(matriz):
+    for j, columna in enumerate(fila):
+        print(i, j)
+        if columna == "x":
+            nuevamatriz[i][j] = True
+            conteox += 1
+
+
+        elif columna == "o":
+            nuevamatriz[i][j] = False
+            conteoo += 1
+        else:
+            nuevamatriz[i][j] = ""
+
+if conteox - conteoo == 1 or conteox - conteoo == 0:
+    print("valores validos")
+
+
+else:
+    print("no validos")
+
+if all(nuevamatriz[0]) or all(nuevamatriz[1]) or all(nuevamatriz[2]):
+    print("gana la x  en horizontal")
+
+elif all((nuevamatriz[0][0], nuevamatriz[1][1], nuevamatriz[2][2])) or all(
+        (nuevamatriz[0][2], nuevamatriz[1][1], nuevamatriz[2][0])):
+    print("gano la x en diagonal")
+
+elif not any((nuevamatriz[0][0], nuevamatriz[1][1], nuevamatriz[2][2])) or not any(
+        (nuevamatriz[0][2], nuevamatriz[1][1], nuevamatriz[2][0])):
+    print("gano la o en diagonal")
+
+elif not any(nuevamatriz[0]) or not any(nuevamatriz[1]) or not any(nuevamatriz[2]):
+    print("gano el o en horizontal ")
+
+elif all((nuevamatriz[0][0], nuevamatriz[1][0], nuevamatriz[2][0])) or all(
+        (nuevamatriz[0][1], nuevamatriz[1][1], nuevamatriz[2][1])) or all(
+        (nuevamatriz[0][2], nuevamatriz[1][2], nuevamatriz[2][2])):
+    print("gano el x en vertical")
+elif not any((nuevamatriz[0][0], nuevamatriz[1][0], nuevamatriz[2][0])) or not any(
+        (nuevamatriz[0][1], nuevamatriz[1][1], nuevamatriz[2][1])) or not any(
+        (nuevamatriz[0][2], nuevamatriz[1][2], nuevamatriz[2][2])):
+    print("gano el o en vertical")
+else:
+    print("no gano nadie")
+
+print(matriz)
+print(nuevamatriz)
+
+"""
+ingreso = (input("Coloca la logitud de las ramas para comprobar si se puede o no armar un cuadrado: "))
+succes = 0
+if len(ingreso) > 4 :
+    print("No se puede armar el cuadrado")
+elif len(ingreso) == 4 :
+    for numero, i in enumerate(ingreso):
+        if i == ingreso[numero - 1]:
+            succes = True
+
+
+        else:
+            succes = False
+            
+            break
+
+print(succes)
 """
