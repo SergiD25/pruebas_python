@@ -1,5 +1,5 @@
 """ PRIMER RETO
-for a in range(1,101):
+for B in range(1,101):
     if (a % 5 ==0) and (a % 3 == 0):
         print("fizzbuzz")
     elif a % 3 == 0:
@@ -566,8 +566,9 @@ print(recorrido(acciones, pista))
 
 """
 
+"""
 matriz = [
-    ["o", "x", "x"],
+    ["x", "x", ""],
     ["x", "x", ""],
     ["o", "o", ""]
 ]
@@ -591,7 +592,7 @@ for i, fila in enumerate(matriz):
             nuevamatriz[i][j] = False
             conteoo += 1
         else:
-            nuevamatriz[i][j] = ""
+            nuevamatriz[i][j] = " "
 
 if conteox - conteoo == 1 or conteox - conteoo == 0:
     print("valores validos")
@@ -600,24 +601,34 @@ if conteox - conteoo == 1 or conteox - conteoo == 0:
 else:
     print("no validos")
 
+# primera fila de la matriz
+a = set(matriz[0])
+# segunda fila de la matriz
+b = set(matriz[1])
+# tercera fila de la matriz
+c = set(matriz[2])
+print (len(a))
+
+#probar horizontal de x
 if all(nuevamatriz[0]) or all(nuevamatriz[1]) or all(nuevamatriz[2]):
     print("gana la x  en horizontal")
-
+#probar diagonal de la x
 elif all((nuevamatriz[0][0], nuevamatriz[1][1], nuevamatriz[2][2])) or all(
         (nuevamatriz[0][2], nuevamatriz[1][1], nuevamatriz[2][0])):
     print("gano la x en diagonal")
-
+#probar diagonal de o
 elif not any((nuevamatriz[0][0], nuevamatriz[1][1], nuevamatriz[2][2])) or not any(
         (nuevamatriz[0][2], nuevamatriz[1][1], nuevamatriz[2][0])):
     print("gano la o en diagonal")
-
+#probar horizontal de o
 elif not any(nuevamatriz[0]) or not any(nuevamatriz[1]) or not any(nuevamatriz[2]):
     print("gano el o en horizontal ")
-
+#probar vertical x
 elif all((nuevamatriz[0][0], nuevamatriz[1][0], nuevamatriz[2][0])) or all(
         (nuevamatriz[0][1], nuevamatriz[1][1], nuevamatriz[2][1])) or all(
         (nuevamatriz[0][2], nuevamatriz[1][2], nuevamatriz[2][2])):
     print("gano el x en vertical")
+#probar vertical de o
 elif not any((nuevamatriz[0][0], nuevamatriz[1][0], nuevamatriz[2][0])) or not any(
         (nuevamatriz[0][1], nuevamatriz[1][1], nuevamatriz[2][1])) or not any(
         (nuevamatriz[0][2], nuevamatriz[1][2], nuevamatriz[2][2])):
@@ -626,7 +637,7 @@ else:
     print("no gano nadie")
 
 print(matriz)
-print(nuevamatriz)
+print(nuevamatriz)"""
 
 """
 ingreso = (input("Coloca la logitud de las ramas para comprobar si se puede o no armar un cuadrado: "))
@@ -644,5 +655,213 @@ elif len(ingreso) == 4 :
             
             break
 
-print(succes)
+print(succes)"""
+
 """
+def tricky(matriz):
+
+    cantidad = 0
+    conteox = 0
+    conteoo = 0
+
+    for i, fila in enumerate(matriz):
+
+
+
+
+
+    #horizontal de la x
+        if (matriz[0][0], matriz[0][1], matriz[0][2]) == ("x", "x", "x") or (matriz[1][0], matriz[1][1], matriz[1][2]) == (
+            "x", "x", "x") or (matriz[2][0], matriz[2][1], matriz[2][2]) == ("x", "x", "x"):
+            print("gana la x el tricky")
+            conteox += 1
+            continue
+    #horizontal de la o
+        elif (matriz[0][0], matriz[0][1], matriz[0][2]) == ("o", "o", "o")or (matriz[1][0], matriz[1][1], matriz[1][2]) == (
+            "o", "o", "o") or (matriz[2][0], matriz[2][1], matriz[2][2]) == ("o", "o", "o"):
+            print("gano la o el tricky")
+            conteoo += 1
+            continue
+   #vertical de la x
+        elif (matriz[0][0], matriz[1][0], matriz[2][0]) == ("x", "x", "x") or (matriz[0][1], matriz[1][1],
+                                                                              matriz[2][1]) == ("x", "x", "x") or (
+                matriz[0][2], matriz[1][2], matriz[2][2]) == ("x", "x", "x"):
+            print("gano la x el tricky")
+            conteox += 1
+            continue
+    #vertical de la o
+        elif (matriz[0][0], matriz[1][0], matriz[2][0]) == ("o", "o", "o") or (matriz[0][1], matriz[1][1],
+                                                                           matriz[2][1]) == ("o", "o", "o") or (
+            matriz[0][2], matriz[1][2], matriz[2][2]) == ("o", "o", "o"):
+            print("gano la 0 el tricky")
+            conteoo += 1
+            continue
+    #diagonal de la x
+        elif (matriz[0][0],matriz[1][1],matriz[2][2]) == ("x", "x", "x") or (matriz[0][2],matriz[1][1],matriz[2][0]) == ("x", "x", "x"):
+            print("gano la 0 el tricky")
+            conteox += 1
+            continue
+
+#diagonal de la o
+        elif (matriz[0][0],matriz[1][1],matriz[2][2]) == ("o", "o", "o") or (matriz[0][2],matriz[1][1],matriz[2][0]) == ("o", "o", "o"):
+            print("gano la 0 el tricky")
+            conteoo += 1
+            continue
+
+        else:
+            print("No gano nadie")
+
+    print(cantidad)
+
+matriz = [
+    ["x", "x", "x"],
+    ["o", "o", "o"],
+    ["o", "o", "o"]]
+tricky(matriz)
+"""
+
+"""
+def tricky(matriz):
+    ganadorx = 0
+    ganadoro = 0
+    contarx = 0
+    contaro = 0
+
+
+    print("x" in set([matriz[0][1], matriz[1][1],matriz[2][1]]) and len(set([matriz[0][1], matriz[1][1],matriz[2][1]])))
+
+    for i, fila in enumerate(matriz):
+
+        if len(set(matriz[i])) == 1 and "x" in set(matriz[i]):
+            ganadorx += 1
+        elif len(set(matriz[i])) == 1 and "o" in set(matriz[i]):
+            ganadoro += 1
+
+        for j, columna in enumerate(matriz):
+            if matriz[i][j] == "x":
+                contarx += 1
+            elif matriz[i][j] == "o":
+                contaro += 1
+
+    if ("x" in set([matriz[0][0], matriz[1][0],matriz[2][0]]) and len(set([matriz[0][0], matriz[1][0],matriz[2][0]])) == 1  ) or ("x" in set([matriz[0][1], matriz[1][1],matriz[2][1]]) and len(set([matriz[0][1], matriz[1][1],matriz[2][1]])) == 1 )or ("x" in set([matriz[0][2], matriz[1][2],matriz[2][2]]) and (len(set([matriz[0][2], matriz[1][2],matriz[2][2]]))) == 1):
+        print(len(set([matriz[0][0], matriz[1][0],matriz[2][0]])))
+        ganadorx += 1
+
+    if (len(set([matriz[0][0], matriz[1][0],matriz[2][0]])) == 1 and "o" in set([matriz[0][0], matriz[1][0],matriz[2][0]])) or ("o" in set([matriz[0][1], matriz[1][1],matriz[2][1]]) and len(set([matriz[0][1], matriz[1][1],matriz[2][1]])) == 1 )or ("o" in set([matriz[0][2], matriz[1][2],matriz[2][2]]) and (len(set([matriz[0][2], matriz[1][2],matriz[2][2]]))) == 1):
+        print(set([matriz[0][0], matriz[1][0], matriz[2][0]]))
+        ganadoro += 1
+
+
+    print(ganadoro,ganadorx)
+
+
+
+
+
+
+
+matriz = [
+    ["x", "x", "o"],
+    ["o", "o", "o"],
+    ["x", "x", "x"]
+]
+
+
+tricky(matriz)
+"""
+
+
+def tricky(matriz):
+    ganadorx = 0
+    ganadoro = 0
+    conteox = 0
+    conteoo = 0
+    conteov = 0
+
+    for i, fila in enumerate(matriz):
+        if len(set(matriz[i])) == 1 and set(matriz[i]) == {"x"}:
+            ganadorx += 1
+
+        elif len(set(matriz[i])) == 1 and set(matriz[i]) == {"o"}:
+            ganadoro += 1
+
+        for j, columna in enumerate(matriz):
+            if matriz[i][j] == "x":
+                conteox += 1
+            elif matriz[i][j] == "o":
+                conteoo += 1
+            elif matriz[i][j] == "":
+                conteov += 1
+            else:
+                print("Hay un caracter invalido")
+                return False
+
+
+
+    a = {matriz[0][0], matriz[1][0], matriz[2][0]}
+    b = {matriz[0][1], matriz[1][1], matriz[2][1]}
+    c = {matriz[0][2], matriz[1][2], matriz[2][2]}
+    d = {matriz[0][0], matriz[1][1], matriz[2][2]}
+    e = {matriz[0][2], matriz[1][1], matriz[2][0]}
+
+
+    if (len(a) == 1 and "x" in a )or (len(b) == 1 and "x" in b) or (len(c) == 1 and "x" in c):
+
+        ganadorx += 1
+    # ganador en vertical O
+    if (len(a) == 1 and "o" in a) or (len(b) == 1 and "o" in b) or (len(c) == 1 and "o" in c):
+        ganadoro += 1
+    # ganador en diagonal X
+    if len(d) == 1 and "x" in d :
+        ganadorx += 1
+    if len(e) == 1 and "x" in e :
+        ganadorx += 1
+
+    # ganador en diagonal O
+    if len(d) == 1 and "o" in d:
+        ganadoro += 1
+    if len(e) == 1 and "o" in e:
+        ganadoro += 1
+
+
+        # logica para determinar el gandor
+    if (conteox - conteoo) == 1 or (conteox - conteoo) == 0:
+        print(ganadorx, ganadoro)
+        if ganadorx == 1 and ganadoro == 0:
+            return "x gana"
+        elif ganadoro == 1 and ganadorx == 0:
+            return "o gana"
+        elif ganadorx >=1 and ganadoro>=1:
+            return "no es posible este resultado"
+        else:
+            return "empate"
+    else:
+        return "Los datos del juego no son validos"
+
+
+
+
+matriz = [
+    ["x","o", "x"],
+    ["o","x","o"],
+    ["x","o","x"]
+]
+
+validar = []
+
+if len(matriz) == 3:
+    for i, fila in enumerate(matriz):
+        if len(matriz[i]) == 3:
+            validar.append(True)
+        else:
+            validar.append(False)
+            break
+
+    valido = set(validar)
+
+    if True in valido and len(valido) ==1:
+        print(tricky(matriz))
+    else:
+        print("tamaño de la matriz incorreto")
+else:
+    print("Tamaño de matriz no valido")
